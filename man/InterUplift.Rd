@@ -1,0 +1,46 @@
+\name{InterUplift}
+\alias{InterUplift}
+\title{
+Interaction estimator
+}
+\description{
+Fit the interaction uplift model estimator.
+}
+\usage{
+InterUplift(data, treat, outcome, predictors, input = "all")
+}
+\arguments{
+  \item{data}{
+a data frame containing the treatment, the outcome and the predictors.
+}
+  \item{treat}{
+name of a binary (numeric) vector representing the treatment assignment (coded as 0/1).
+}
+  \item{outcome}{
+name of a binary response (numeric) vector (coded as 0/1).
+}
+  \item{predictors}{
+a vector of names representing the explanatory variables to include in the model.
+}
+  \item{input}{
+an option for \code{predictors} argument. If \code{"all"} (default), the model assumes that the model has to create the interaction of all varibles with \code{treat}. If \code{"best"}, the model assumes that the \code{predictors} vector is the output of the \code{BestFeatures} function.
+}
+}
+\value{
+an interaction model
+}
+\author{
+Mouloud Belbahri
+}
+\seealso{
+\code{InterPredict}
+}
+\examples{
+
+library(tools4uplift)
+data("SimUplift")
+
+fit <- InterUplift(SimUplift, "treat", "y", colnames(SimUplift[, 3:12]))
+
+}
+\keyword{uplift}

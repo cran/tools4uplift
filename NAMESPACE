@@ -1,0 +1,21 @@
+importFrom("grDevices", "heat.colors", "rgb", "colorRampPalette")
+importFrom("graphics", "abline", "barplot", "image", "legend", "lines", "plot", "title", "par")
+importFrom("stats", "as.formula", "binomial", "complete.cases", "glm", "model.frame", "model.matrix", "predict", "qnorm", "rbinom", "runif")
+
+import(dplyr,
+       glmnet)
+
+export(BestFeatures,
+       BinUplift,
+       BinUpliftEnhanced,
+       DualPredict,
+       DualUplift,
+       InterPredict,
+       InterUplift,
+       LassoPath,
+       QiniArea,
+       QiniBarPlot,
+       QiniCurve,
+       QiniTable,
+       SplitUplift,
+       SquareUplift)
