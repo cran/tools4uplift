@@ -1,10 +1,10 @@
 \name{BinUpliftEnhanced}
 \alias{BinUpliftEnhanced}
 \title{
-Univariate categorization - augmented data
+Univariate quantization - augmented data
 }
 \description{
-Univariate optimal partitionning for Uplift Models. The algorithm categorizes several variables into bins and creates an augmented dataset with the binned variables.
+Univariate optimal partitionning for Uplift Models. The algorithm quantizes several variables into bins and creates an augmented dataset with the binned variables.
 }
 \usage{
 BinUpliftEnhanced(data, treat, outcome, var.list, n.split = 10, 
@@ -14,7 +14,7 @@ BinUpliftEnhanced(data, treat, outcome, var.list, n.split = 10,
 }
 \arguments{
   \item{data}{
-a data frame containing the treatment, the outcome and the predictor to categorize.
+a data frame containing the treatment, the outcome and the predictor to quantize.
 }
   \item{treat}{
 name of a binary (numeric) vector representing the treatment assignment (coded as 0/1).
@@ -23,7 +23,7 @@ name of a binary (numeric) vector representing the treatment assignment (coded a
 name of a binary response (numeric) vector (coded as 0/1).
 }
   \item{var.list}{
-a vector of names representing the explanatory variables to categorize.
+a vector of names representing the explanatory variables to quantize.
 }
   \item{n.split}{
 number of splits to test at each node. For continuous explanatory variables only (must be > 0).
@@ -48,7 +48,10 @@ a color for the plot. If ommitted, the color will be set by default to a custom 
 }
 }
 \value{
-an augmented data frame with categorized variables. If a variable is enhanced, the function returns automatically a barplot.
+an augmented data frame with quantized variables. If a variable is enhanced, the function returns automatically a barplot.
+}
+\references{
+Belbahri, M., Murua, A., Gandouet, O., and Partovi Nia, V. (2019) Uplift Regression, <https://dms.umontreal.ca/~murua/research/UpliftRegression.pdf>
 }
 \author{
 Olivier Gandouet

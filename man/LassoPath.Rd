@@ -24,7 +24,7 @@ the number of lambda values - Default is 100.
 a dataframe containing the coefficients values and the number of nonzeros coefficients for different values of lambda.
 }
 \references{
-Friedman, J., Hastie, T. and Tibshirani, R. (2008) Regularization Paths for Generalized Linear Models via Coordinate Descent, https://web.stanford.edu/~hastie/Papers/glmnet.pdf, Journal of Statistical Software, Vol. 33(1), 1-22 Feb 2010, http://www.jstatsoft.org/v33/i01/
+Friedman, J., Hastie, T. and Tibshirani, R. (2010) Regularization Paths for Generalized Linear Models via Coordinate Descent, Journal of Statistical Software, Vol. 33(1), 1-22
 }
 \author{
 Mouloud Belbahri

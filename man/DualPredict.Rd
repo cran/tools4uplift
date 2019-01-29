@@ -33,6 +33,11 @@ if \code{TRUE}, a \code{QiniCurve} and \code{QiniBarPlot} are returned.
 \item{data}{a data frame augmented with the predicted uplift}
 \item{qini }{a Qini Coefficient}
 }
+\references{
+Hansotia, B., J., and Rukstales B. (2001) Direct marketing for multichannel retailers: Issues, challenges and solutions. Journal of Database Marketing and Customer Strategy Management, Vol. 9(3), 259-266.
+
+Belbahri, M., Murua, A., Gandouet, O., and Partovi Nia, V. (2019) Uplift Regression, <https://dms.umontreal.ca/~murua/research/UpliftRegression.pdf>
+}
 \author{
 Mouloud Belbahri
 }

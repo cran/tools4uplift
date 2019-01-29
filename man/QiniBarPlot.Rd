@@ -23,6 +23,9 @@ color of the barplot.
 \value{
 a barplot
 }
+\references{
+Belbahri, M., Murua, A., Gandouet, O., and Partovi Nia, V. (2019) Uplift Regression, <https://dms.umontreal.ca/~murua/research/UpliftRegression.pdf>
+}
 \author{
 Mouloud Belbahri
 }

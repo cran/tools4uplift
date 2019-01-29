@@ -1,10 +1,10 @@
 \name{SquareUplift}
 \alias{SquareUplift}
 \title{
-Bivariate categorization
+Bivariate quantization
 }
 \description{
-A non-parametric heat map representing the observed uplift in squares that explore a bivariate dimension space. The function also predicts the individual uplift based on the heatmap. 
+A non-parametric heat map representing the observed uplift in rectangles that explore a bivariate dimension space. The function also predicts the individual uplift based on the heatmap. 
 }
 \usage{
 SquareUplift(data, var1, var2, treat, outcome, n.split = 10, 
@@ -31,7 +31,7 @@ name of a binary response (numeric) vector (coded as 0/1).
 the number of intervals to consider per explanatory variable. Must be an integer > 1. 
 }
   \item{n.min}{
-minimum number of observations per group (treatment and control) within each square. Must be an integer > 0.
+minimum number of observations per group (treatment and control) within each rectangle. Must be an integer > 0.
 }
   \item{categorize}{
 if TRUE, the algorithm will augment the data with the categorical variable \code{Cat_var1_var2} with \code{nb.group} categories sorted from the highest to the lowest predicted uplift.
@@ -40,14 +40,17 @@ if TRUE, the algorithm will augment the data with the categorical variable \code
 number of categories of equal observations of the variable \code{Cat_var1_var2}. Must be an integer > 1.
 }
   \item{plotit}{
-if TRUE, a heatmap of observed uplift per square is plotted.
+if TRUE, a heatmap of observed uplift per rectangle is plotted.
 }
   \item{nb.col}{
 number of colors for the heatmap. From \code{royalblue} to \code{red}. Default is 20. Must be an integer and should greater than \code{n.split} for better visualization.
 }
 }
 \value{
-returns an augmented dataset with \code{Uplift_var1_var2} variable representing a predicted uplift for each observation based on the square it belongs to. By default, the function creates also a categorical variable \code{Cat_var1_var2} based on the predicted uplift and plots a heat map of observed uplift.
+returns an augmented dataset with \code{Uplift_var1_var2} variable representing a predicted uplift for each observation based on the rectangle it belongs to. By default, the function creates also a categorical variable \code{Cat_var1_var2} based on the predicted uplift and plots a heat map of observed uplift.
+}
+\references{
+Belbahri, M., Murua, A., Gandouet, O., and Partovi Nia, V. (2019) Uplift Regression, <https://dms.umontreal.ca/~murua/research/UpliftRegression.pdf>
 }
 \author{
 Mouloud Belbahri

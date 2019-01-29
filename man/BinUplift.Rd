@@ -1,10 +1,10 @@
 \name{BinUplift}
 \alias{BinUplift}
 \title{
-Univariate categorization
+Univariate quantization
 }
 \description{
-Univariate optimal partitionning for Uplift Models. The algorithm categorizes a single variable into bins with significantly different observed uplift.
+Univariate optimal partitionning for Uplift Models. The algorithm quantizes a single variable into bins with significantly different observed uplift.
 }
 \usage{
 BinUplift(data, treat, outcome, x, n.split = 10, alpha = 0.05, 
@@ -13,7 +13,7 @@ BinUplift(data, treat, outcome, x, n.split = 10, alpha = 0.05,
 }
 \arguments{
   \item{data}{
-a data frame containing the treatment, the outcome and the predictor to categorize.
+a data frame containing the treatment, the outcome and the predictor to quantize.
 }
   \item{treat}{
 name of a binary (numeric) vector representing the treatment assignment (coded as 0/1).
@@ -22,7 +22,7 @@ name of a binary (numeric) vector representing the treatment assignment (coded a
 name of a binary response (numeric) vector (coded as 0/1).
 }
   \item{x}{
-name of the explanatory variable to categorize.
+name of the explanatory variable to quantize.
 }
   \item{n.split}{
 number of splits to test at each node. For continuous explanatory variables only (must be > 0).
@@ -49,8 +49,11 @@ a color for the plot. If ommitted, the color will be set by default to a custom 
 \value{
 
 \item{out.tree}{Descriptive statistics for the different nodes of the tree}
-\item{sas.code}{SAS code generated for variable categorization}
+\item{sas.code}{SAS code generated for variable quantization}
 
+}
+\references{
+Belbahri, M., Murua, A., Gandouet, O., and Partovi Nia, V. (2019) Uplift Regression, <https://dms.umontreal.ca/~murua/research/UpliftRegression.pdf>
 }
 \author{
 Mouloud Belbahri
