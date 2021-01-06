@@ -1,28 +1,27 @@
-\name{QiniArea}
-\alias{QiniArea}
+\name{barplot.PerformanceUplift}
+\alias{barplot.PerformanceUplift}
 \title{
-Qini coefficient
+Uplift barplot
 }
 \description{
-Computes the area under the Qini curve.
+Barplot of observed uplift with respect to predicted uplift sorted from the highest to the lowest.
 }
 \usage{
-QiniArea(x, adjusted=FALSE)
+
+\method{barplot}{PerformanceUplift}(height, ...)
 }
 \arguments{
-  \item{x}{
+  \item{height}{
 a table that must be the output of \code{PerformanceUplift} function.
 }
-  \item{adjusted}{
-if TRUE, returns the Qini coefficient adjusted by the Kendall's uplift rank correlation.
+  \item{...}{
+additional barplot arguments.
 }
 }
 \value{
-the Qini or the adjusted Qini coefficient
+a barplot and the associated Kendall's uplift rank correlation
 }
 \references{
-Radcliffe, N. (2007). Using control groups to target on predicted lift: Building and assessing uplift models. Direct Marketing Analytics Journal, An Annual Publication from the Direct Marketing Association Analytics Council, pages 14-21.
-
 Belbahri, M., Murua, A., Gandouet, O., and Partovi Nia, V. (2019) Uplift Regression, 
 <https://dms.umontreal.ca/~murua/research/UpliftRegression.pdf>
 }
@@ -43,8 +42,8 @@ model <- BinUplift2d(SimUplift, "X1", "X2", "treat", "y")
 perf <- PerformanceUplift(data = model, treat = "treat", 
                   outcome = "y", prediction = "Uplift_X1_X2", 
                   equal.intervals = TRUE, nb.group = 5)
-QiniArea(perf)
+
+barplot(perf)
 
 }
-\keyword{Qini}
 \keyword{performance}

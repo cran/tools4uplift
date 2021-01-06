@@ -1,4 +1,6 @@
-DualUplift <- function(data, treat, outcome, predictors){
+DualUplift <- function(data, ...) UseMethod("DualUplift")
+
+DualUplift.default <- function(data, treat, outcome, predictors, ...){
   
   # Two-model estimator.
   #
@@ -28,17 +30,24 @@ DualUplift <- function(data, treat, outcome, predictors){
   mydata0 <- data[data[[treat]] == 0,]  # keep only T=0
   mydata0 <- mydata0[,which(names(mydata0) %in% c(predictors,outcome))]  # keep only predictors and outcome
   
-  model0 <- glm(model_formula, family=binomial(link="logit"), mydata0)
+  model0 <- glm(model_formula, family=binomial(link="logit"), mydata0, ...)
   
   # Create the propensity score model in order to estimate P(Y=1|T=1)
   mydata1 <- data[data[[treat]] == 1,]  # keep only T=1
   mydata1 <- mydata1[,which(names(mydata1) %in% c(predictors,outcome))]  # keep only predictors and outcome
   
-  model1 <- glm(model_formula, family=binomial(link="logit"), mydata1)  
+  model1 <- glm(model_formula, family=binomial(link="logit"), mydata1, ...)  
   
-  return(list(model0, model1))
+  res.dual <- list(model0, model1)
+  
+  cl <- match.call()
+  cl[[1]] <- as.name("DualUplift")
+  res.dual[[3]] <- cl
+  
+  class(res.dual) <- "DualUplift"
+  
+  return(res.dual)
   
 }
 
 # END FUN
-

@@ -1,5 +1,9 @@
 \name{DualUplift}
 \alias{DualUplift}
+\alias{DualUplift.default}
+\alias{DualUplift.formula}
+\alias{print.DualUplift}
+\alias{summary.DualUplift}
 \title{
 Two-model estimator
 }
@@ -7,11 +11,14 @@ Two-model estimator
 Fit the two-model uplift model estimator.
 }
 \usage{
-DualUplift(data, treat, outcome, predictors)
+
+\method{DualUplift}{formula}(formula, treat, data, ...)
+
+\method{DualUplift}{default}(data, treat, outcome, predictors, ...)
+
 }
 \arguments{
-  \item{data}{
-a data frame containing the treatment, the outcome and the predictors.
+  \item{data, formula}{a data frame containing the treatment, the outcome and the predictors or a formula describing the model to be fitted.
 }
   \item{treat}{
 name of a binary (numeric) vector representing the treatment assignment (coded as 0/1).
@@ -21,6 +28,8 @@ name of a binary response (numeric) vector (coded as 0/1).
 }
   \item{predictors}{
 a vector of names representing the explanatory variables to include in the model.
+}
+  \item{\dots}{additional arguments (other than \code{formula}, \code{family}, and \code{data}) to be passed to \code{glm} function for each sub-model.
 }
 }
 \value{
@@ -32,13 +41,11 @@ a vector of names representing the explanatory variables to include in the model
 \references{
 Hansotia, B., J., and Rukstales B. (2001) Direct marketing for multichannel retailers: Issues, challenges and solutions. Journal of Database Marketing and Customer Strategy Management, Vol. 9(3), 259-266.
 
-Belbahri, M., Murua, A., Gandouet, O., and Partovi Nia, V. (2019) Uplift Regression, <https://dms.umontreal.ca/~murua/research/UpliftRegression.pdf>
+Belbahri, M., Murua, A., Gandouet, O., and Partovi Nia, V. (2019) Uplift Regression, 
+<https://dms.umontreal.ca/~murua/research/UpliftRegression.pdf>
 }
 \author{
 Mouloud Belbahri
-}
-\seealso{
-\code{DualPredict}
 }
 \examples{
 
@@ -47,5 +54,7 @@ data("SimUplift")
 
 fit <- DualUplift(SimUplift, "treat", "y", predictors = colnames(SimUplift[, 3:12]))
 
+print(fit)
+summary(fit)
 }
 \keyword{uplift}

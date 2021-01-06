@@ -1,5 +1,7 @@
 \name{InterUplift}
 \alias{InterUplift}
+\alias{InterUplift.default}
+\alias{InterUplift.formula}
 \title{
 Interaction estimator
 }
@@ -7,11 +9,14 @@ Interaction estimator
 Fit the interaction uplift model estimator.
 }
 \usage{
-InterUplift(data, treat, outcome, predictors, input = "all")
+
+\method{InterUplift}{formula}(formula, treat, data, ...)
+
+\method{InterUplift}{default}(data, treat, outcome, predictors, input = "all", ...)
+
 }
 \arguments{
-  \item{data}{
-a data frame containing the treatment, the outcome and the predictors.
+  \item{data, formula}{a data frame containing the treatment, the outcome and the predictors or a formula describing the model to be fitted.
 }
   \item{treat}{
 name of a binary (numeric) vector representing the treatment assignment (coded as 0/1).
@@ -25,6 +30,8 @@ a vector of names representing the explanatory variables to include in the model
   \item{input}{
 an option for \code{predictors} argument. If \code{"all"} (default), the model assumes that the model has to create the interaction of all varibles with \code{treat}. If \code{"best"}, the model assumes that the \code{predictors} vector is the output of the \code{BestFeatures} function.
 }
+  \item{\dots}{additional arguments (other than \code{formula}, \code{family}, and \code{data}) to be passed to \code{glm} function for the interaction model.
+}
 }
 \value{
 an interaction model
@@ -32,13 +39,11 @@ an interaction model
 \references{
 Lo, V., S., Y. (2002) The true lift model: a novel data mining approach to response modeling in database marketing. ACM SIGKDD Explorations Newsletter, Vol. 4(2), 78-86.
 
-Belbahri, M., Murua, A., Gandouet, O., and Partovi Nia, V. (2019) Uplift Regression, <https://dms.umontreal.ca/~murua/research/UpliftRegression.pdf>
+Belbahri, M., Murua, A., Gandouet, O., and Partovi Nia, V. (2019) Uplift Regression, 
+<https://dms.umontreal.ca/~murua/research/UpliftRegression.pdf>
 }
 \author{
 Mouloud Belbahri
-}
-\seealso{
-\code{InterPredict}
 }
 \examples{
 

@@ -19,6 +19,7 @@ SplitUplift <- function(data, p, group){
   valid <- data %>% anti_join(train, by = "ID")
   
   dataSplit <- list(train[,-ncol(train)], valid[,-ncol(valid)])
+  class(dataSplit) <- "SplitUplift"
   return(dataSplit)
 }
 

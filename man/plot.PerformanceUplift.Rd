@@ -1,24 +1,25 @@
-\name{QiniArea}
-\alias{QiniArea}
+\name{plot.PerformanceUplift}
+\alias{plot.PerformanceUplift}
 \title{
-Qini coefficient
+Qini curve
 }
 \description{
-Computes the area under the Qini curve.
+Curve of the function Qini, the incremental observed uplift with respect to predicted uplift sorted from the highest to the lowest.
 }
 \usage{
-QiniArea(x, adjusted=FALSE)
+
+\method{plot}{PerformanceUplift}(x, ...)
 }
 \arguments{
   \item{x}{
 a table that must be the output of \code{PerformanceUplift} function.
 }
-  \item{adjusted}{
-if TRUE, returns the Qini coefficient adjusted by the Kendall's uplift rank correlation.
+  \item{...}{
+additional plot arguments.
 }
 }
 \value{
-the Qini or the adjusted Qini coefficient
+a Qini curve and the associated Qini coefficient
 }
 \references{
 Radcliffe, N. (2007). Using control groups to target on predicted lift: Building and assessing uplift models. Direct Marketing Analytics Journal, An Annual Publication from the Direct Marketing Association Analytics Council, pages 14-21.
@@ -37,13 +38,13 @@ Mouloud Belbahri
 library(tools4uplift)
 data("SimUplift")
 
-model <- BinUplift2d(SimUplift, "X1", "X2", "treat", "y")
-
-#performance of the heat map uplift estimation on the training dataset
-perf <- PerformanceUplift(data = model, treat = "treat", 
+model1 <- BinUplift2d(SimUplift, "X1", "X2", "treat", "y")
+perf1 <- PerformanceUplift(data = model1, treat = "treat", 
                   outcome = "y", prediction = "Uplift_X1_X2", 
-                  equal.intervals = TRUE, nb.group = 5)
-QiniArea(perf)
+                  equal.intervals = TRUE, nb.group = 3)
+                  
+                  
+plot(perf1, type='b')
 
 }
 \keyword{Qini}
